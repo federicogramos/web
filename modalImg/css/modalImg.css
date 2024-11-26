@@ -1,0 +1,197 @@
+/*==============================================================================
+// Archivo: /css/modalImg.css
+// Autor: Federico Ramos <federico.g.ramos@gmail.com>
+// Modificado: 20241126 0110
+//
+// Los siguientes archivos forman parte de una librería para desplegar imágenes
+// del tipo popup:
+// # modalImg.js
+// # modalImg.css
+==============================================================================*/
+
+
+/*============================================================================*/
+/*
+.row > .column {
+    padding: 0 8px;
+}
+*/
+
+
+/*============================================================================*/
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Create four equal columns that floats next to eachother ===================*/
+/*
+.column {
+    float: left;
+    width: 25%;
+}
+*/
+
+
+/* The Modal (screen) ========================================================*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 5vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+
+/* Modal Content (black box) -------------------------------------------------*/
+
+.modal-content {
+    position: relative;
+    background-color: black;
+    margin: auto;
+    padding: 5px 0px 5px 0px;/* Pequeño margen arriba y abajo. */
+    width: 90%;
+    max-width: 1200px;
+
+}
+
+
+/* The Close Button ==========================================================*/
+
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*============================================================================*/
+
+.slideImg    {
+    max-height: 50vh;
+    max-width:-webkit-fill-available;
+}
+
+
+/* Hide the slides by default ================================================*/
+.mySlides {
+    display: none;
+    text-align: center;
+    background: black;
+}
+
+
+/* Next & previous buttons ===================================================*/
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* Position the "next button" to the right -----------------------------------*/
+
+.next {
+    right: 0;
+}
+
+
+/* On hover, add a black background color with a little bit see-through ------*/
+
+.prev:hover,
+.next:hover,
+.prev:focus,
+.next.focus {
+    background-color: #222;
+    color: #999;
+}
+
+
+/* Number text (n/tot) =======================================================*/
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 110%;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+
+/* Caption text ==============================================================*/
+
+.caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+}
+
+
+/*============================================================================*/
+
+img.modalImgCtrl {
+    opacity: 0.6;
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+.active,
+.modalImgCtrl:hover {
+    opacity: 1;
+}
+
+
+/* Images to click and open modal ============================================*/
+
+.hoverSelect {
+  /*transition: 0.3s;*/
+    border: 1px solid #cfcfcf;
+
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+.hoverSelect:hover {
+/*  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    border: 1px solid #0078a3;
+}
+
+
+
+
+
