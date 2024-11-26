@@ -5,8 +5,9 @@
 //
 // Los siguientes archivos forman parte de una librería para desplegar imágenes
 // del tipo popup:
-// # modalImg.js
-// # modalImg.css
+// # modalImg.php
+// # ./js/modalImg.js
+// # ./css/modalImg.css
 ==============================================================================*/
 
 
@@ -130,12 +131,15 @@
 
 /* On hover, add a black background color with a little bit see-through ------*/
 
+a.prev:hover,
+a.next:hover,
 .prev:hover,
 .next:hover,
 .prev:focus,
 .next.focus {
     background-color: #222;
     color: #999;
+    text-decoration: none;
 }
 
 
