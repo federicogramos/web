@@ -40,10 +40,11 @@
 /* The Modal (screen) ========================================================*/
 
 .modal {
-    display: none;
+    display: none;/* Importante para que se ubique en el centro verticalmente.
+    Pero este debe ser cambiado a "-webkit-inline-box" por js. */
     position: fixed;
     z-index: 1;
-    padding-top: 5vh;
+    padding-top: 0vh;
     left: 0;
     top: 0;
     width: 100%;
@@ -119,6 +120,7 @@
     font-size: 35px;
     user-select: none;
     -webkit-user-select: none;
+    background: rgba(128, 128, 128, 0.25);
 }
 
 
@@ -137,7 +139,7 @@ a.next:hover,
 .next:hover,
 .prev:focus,
 .next.focus {
-    background-color: #222;
+    background: rgba(128, 128, 128, 0.5);
     color: #999;
     text-decoration: none;
 }

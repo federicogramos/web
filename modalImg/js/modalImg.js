@@ -5,8 +5,9 @@
 //
 // Los siguientes archivos forman parte de una librería para desplegar imágenes
 // del tipo popup:
-// # modalImg.js
-// # modalImg.css
+// # modalImg.php
+// # ./js/modalImg.js
+// # ./css/modalImg.css
 //==============================================================================
 
 
@@ -27,7 +28,8 @@ function openModal(modalIndex) {
     window.addEventListener("keyup", keyListener, false);
 //    object.addEventListener("keypress", myScript);
 
-    document.getElementById("modal_" + modalIndex).style.display = "block";
+    document.getElementById("modal_" + modalIndex).style.display = "-webkit-inline-box";
+    // De esta manera se ubica verticalmente centrado.
 }
 
 
