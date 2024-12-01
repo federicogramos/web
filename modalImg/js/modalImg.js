@@ -144,7 +144,6 @@ function keyListener(e) {
 
 
 //==============================================================================
-// # e = touch
     
 function slideListenCheckDirection() {
     var delta = touchEndX - touchStartX;
@@ -158,6 +157,7 @@ function slideListenCheckDirection() {
 
 
 //==============================================================================
+// Receives:
 // # e = touch
 
 function slideStartListener(e) {
@@ -166,6 +166,7 @@ function slideStartListener(e) {
 
 
 //==============================================================================
+// Receives:
 // # e = touch
 
 function slideEndListener(e) {
