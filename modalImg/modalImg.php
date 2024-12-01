@@ -71,7 +71,7 @@ function modalImg($vimg)
 //        $vControl[] = "<img class=\"modalImgCtrl\" "."src=\"".$urlNamex."\" ".
   //          "onclick=\"currentSlide(".$key.");\" alt=\"".$img[1]."\">";
 
-        $vControl[] = "<img class=\"modalImgCtrl modalImgCtrl_".$modalIndex."\" "."src=\"".$urlNamex."\" ".
+        $vControl[] = "<img class=\"modalImgCtrl modalImgCtrl_".$modalIndex." inactive\" "."src=\"".$urlNamex."\" ".
             "onclick=\"currentSlide(".$key.");\" alt=\"".$img[1]."\">";
 
 

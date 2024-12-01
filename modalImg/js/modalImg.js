@@ -16,6 +16,8 @@
 var currentModal = 0;
 var listenersEnabled = 0;// Si no uso este flag, el primer abre y cierra.
 var slideIndex = 0;
+var touchStartX = 0; // For slide listener;
+var touchEndX = 0;// Idem.
 
 
 //==============================================================================
@@ -26,7 +28,8 @@ function openModal(modalIndex) {
     currentModal = modalIndex;
     window.addEventListener("click", clickListener, false);
     window.addEventListener("keyup", keyListener, false);
-//    object.addEventListener("keypress", myScript);
+    window.addEventListener("touchStart", slideStartListener);
+    window.addEventListener("touchEnd", slideEndListener);
 
     document.getElementById("modal_" + modalIndex).style.display = "-webkit-inline-box";
     // De esta manera se ubica verticalmente centrado.
@@ -41,6 +44,9 @@ function closeModal(modalIndex) {
     document.getElementById("modal_" + modalIndex).style.display = "none";
     window.removeEventListener("click", clickListener, false);
     window.removeEventListener("keyup", keyListener, false);
+    window.removeEventListener("touchStart", slideStartListener);
+    window.removeEventListener("touchEnd", slideEndListener);
+
     listenersEnabled = 0;
 }
 
@@ -55,6 +61,7 @@ function plusSlides(n) {
 
 //==============================================================================
 // Thumbnail image controls
+
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
@@ -77,11 +84,20 @@ function showSlides(n) {
     slides[i].style.display = "none";
     }
     for (i = 0; i < ctrl.length; i++) {
-    ctrl[i].className = ctrl[i].className.replace(" active", "");
+        if(i == slideIndex) {
+            // Enciende el nuevo "control thumb".
+            ctrl[i].className = ctrl[i].className.replace(" inactive", " active");
+            // Busca string exacto, por eso para que no quede "ininactive" al pr
+            // imer reemplazo de inactive sobre inactive, debe agregarse ese esp
+            // acio.
+        }
+        else if(ctrl[i].className.includes(" active")) {
+            // Apaga el anterior "control thumb".
+            ctrl[i].className = ctrl[i].className.replace(" active", " inactive");
+        }
     }
 
     slides[slideIndex].style.display = "block";
-    ctrl[slideIndex].className += " active";
     captionText.innerHTML = ctrl[slideIndex].alt;
 
     // Activa el src solo cuando se selecciona (hace que no se descargue imagen
@@ -94,10 +110,13 @@ function showSlides(n) {
 //==============================================================================
 
 function clickListener(e) {
-    if(listenersEnabled) {// inside
+    if(listenersEnabled) {
+        // inside
         if(document.getElementById("modalContent_"+currentModal).contains(e.target)) {
+            // Nothing for the moment.
         }
-        else {// outside
+        else {
+            // Outside.
             closeModal(currentModal);
         }
      }
@@ -121,6 +140,37 @@ function keyListener(e) {
     else if(e.key === "ArrowRight") {
         plusSlides(1);
     }
+}
+
+
+//==============================================================================
+// # e = touch
+    
+function slideListenCheckDirection() {
+    var delta = touchEndX - touchStartX;
+    var threshold = 0;
+    
+    if(Math.abs(delta) > 40) threshold = 1;// Probe delta de 40 y es buen valor.
+    
+    if(threshold && touchEndX < touchStartX) plusSlides(1);
+    if(threshold && touchEndX > touchStartX) plusSlides(-1);
+}
+
+
+//==============================================================================
+// # e = touch
+
+function slideStartListener(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}
+
+
+//==============================================================================
+// # e = touch
+
+function slideEndListener(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    slideListenCheckDirection();
 }
 
 
