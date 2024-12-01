@@ -28,8 +28,8 @@ function openModal(modalIndex) {
     currentModal = modalIndex;
     window.addEventListener("click", clickListener, false);
     window.addEventListener("keyup", keyListener, false);
-    window.addEventListener("touchStart", slideStartListener);
-    window.addEventListener("touchEnd", slideEndListener);
+    window.addEventListener("touchstart", slideStartListener);
+    window.addEventListener("touchend", slideEndListener);
 
     document.getElementById("modal_" + modalIndex).style.display = "-webkit-inline-box";
     // De esta manera se ubica verticalmente centrado.
