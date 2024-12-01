@@ -166,10 +166,10 @@ a.next:hover,
 }
 
 
-/*============================================================================*/
+/* Pequeñas imágenes ingeriores con el modal abierto =========================*/
 
 img.modalImgCtrl {
-    opacity: 0.6;
+    /* Por el momento sin uso: se utilizan el "active" e "inactive" */
 }
 
 
@@ -181,10 +181,17 @@ img.modalImgCtrl {
 }
 
 
+/*----------------------------------------------------------------------------*/
+
+.inactive {
+    opacity: 0.6;
+}
+
+
 /* Images to click and open modal ============================================*/
 
 .hoverSelect {
-  /*transition: 0.3s;*/
+    /*transition: 0.3s;*/
     border: 1px solid #cfcfcf;
 
 }
@@ -193,7 +200,7 @@ img.modalImgCtrl {
 /*----------------------------------------------------------------------------*/
 
 .hoverSelect:hover {
-/*  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     border: 1px solid #0078a3;
 }
 
